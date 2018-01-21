@@ -1,0 +1,245 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <script src="components/loader.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+    </script>
+</head>
+<body>
+        
+    <!-- Menu Page -->
+    <div data-role="page" id="QPage">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <br>
+            <h1 class="title"></h1>
+        </header>
+        <section>
+            <div data-role="content">
+                <a href="#question1" data-role="button" data-inline="true" data-theme="a">問題1</a>
+                <a href="#question2" data-role="button" data-inline="true" data-theme="a">問題2</a>
+                <a href="#question3" data-role="button" data-inline="true" data-theme="a">問題3</a>
+                <a href="#question4" data-role="button" data-inline="true" data-theme="a">問題4</a>
+                <a href="#question5" data-role="button" data-inline="true" data-theme="a">問題5</a>
+                <a href="#question6" data-role="button" data-inline="true" data-theme="a">問題6</a>
+                <a href="#question7" data-role="button" data-inline="true" data-theme="a">問題7</a>
+                <br>
+                <hr>
+                <label for="selectQ" class="select">問題を選択:</label>
+                <select name="selectQ" id="selectQ" data-native-menu="false" data-mini="true" data-inline="true">
+                    <option value="0">Select Question</option>
+                    <option value="1">問題1</option>
+                    <option value="2">問題2</option>
+                    <option value="3">問題3</option>
+                    <option value="4">問題4</option>
+                    <option value="5">問題5</option>
+                    <option value="6">問題6</option>
+                    <option value="7">問題7</option>
+                </select>
+                <a href="#" id="Search" data-role="button" data-inline="false" data-theme="a">Search!</a>
+                <br>
+                <a href="#StampPage" data-role="button" data-inline="false" data-theme="a">スタンプ帳</a>
+                <br>
+                <br>
+                <h3 id="stopA"></h3>
+                <h3 id="stopTime"></h3>
+                
+                <div data-role="popup" id="correctPop" data-theme="e">
+                    <h1>正解！</h1>
+                </div>
+                <div data-role="popup" id="incorrectPop" data-theme="e">
+                    <h1>不正解！</h1>
+                </div>
+                <div data-role="popup" id="allClearPop" data-theme="e">
+                    <h1>全問題制覇！</h1>
+                    <h2>おめでとうございます！</h2>
+                </div>
+            </div>
+        </section>
+        <footer data-role="footer" data-position="fixed" data-thme="a">
+            <a href="#" id="reset" data-role="button" data-icon="delete" data-inline="true" data-theme="a" onclick="reset();">リセット</a>
+            <a href="#" data-rol3="button" data-icon="refresh" data-inline="true" data-theme="a" onclick="Qinit();">更新</a>
+        </footer>
+    </div>
+    
+    <!-- Stamp Page -->
+    <div data-role="page" id="StampPage">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <br>
+            <h1>Stamp Page</h1>
+        </header>
+        <section data-role="content">
+            <h1 id="myRank"></h1>
+            <br>
+            <ul data-role="listview" data-divider-theme="b">
+                <li data-role="list-divider">問題1</li>
+                <li id="q1">×</li>
+
+                <li data-role="list-divider">問題2</li>
+                <li id="q2">×</li>
+
+                <li data-role="list-divider">問題3</li>
+                <li id="q3">×</li>
+
+                <li data-role="list-divider">問題4</li>
+                <li id="q4">×</li>
+
+                <li data-role="list-divider">問題5</li>
+                <li id="q5">×</li>
+
+                <li data-role="list-divider">問題6</li>
+                <li id="q6">×</li>
+
+                <li data-role="list-divider">問題7</li>
+                <li id="q7">×</li>
+            </ul>
+        </section>
+        <footer data-role="footer" data-position="fixed" data-theme="a">
+            <a href="#" data-rel="back" data-icon="home">Menu</a>
+        </footer>
+    </div>
+
+    
+    <!-- Hint -->
+    <div data-role="page" id="question1">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <br>
+            <h1>Question</h1>
+        </header>
+        <section>
+            <div data-role="content">
+                <h1>Question:</h1>
+                <h2 id="Q1"></h2>
+                <br>
+            </div>
+        </section>
+        <footer data-role="footer" data-position="fixed" data-thme="a">
+           <a href="#" data-rel="back" data-icon="home">Menu</a>
+        </footer>
+    </div>
+    
+    <div data-role="page" id="question2">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <br>
+            <h1>Question</h1>
+        </header>
+        <section>
+            <div data-role="content">
+                <h1>Question:</h1>
+                <h2 id="Q2"></h2>
+            </div>
+        </section>
+        <footer data-role="footer" data-position="fixed" data-thme="a">
+            <a href="#" data-rel="back" data-icon="home">Menu</a>
+        </footer>
+    </div>
+
+    <div data-role="page" id="question3">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <br>
+            <h1>Question</h1>
+        </header>
+        <section>
+            <div data-role="content">
+                <h1>Question:</h1>
+                <h2 id="Q3"></h2>
+            </div>
+        </section>
+        <footer data-role="footer" data-position="fixed" data-thme="a">
+            <a href="#" data-rel="back" data-icon="home">Menu</a>
+        </footer>
+    </div>
+
+    <div data-role="page" id="question4">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <br>
+            <h1>Question</h1>
+        </header>
+        <section>
+            <div data-role="content">
+                <h1>Question:</h1>
+                <h2 id="Q4"></h2>
+            </div>
+        </section>
+        <footer data-role="footer" data-position="fixed" data-thme="a">
+            <a href="#" data-rel="back" data-icon="home">Menu</a>
+        </footer>
+    </div>
+
+    <div data-role="page" id="question5">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <br>
+            <h1>Question</h1>
+        </header>
+        <section>
+            <div data-role="content">
+                <h1>Question:</h1>
+                <h2 id="Q5"></h2>
+            </div>
+        </section>
+        <footer data-role="footer" data-position="fixed" data-thme="a">
+            <a href="#" data-rel="back" data-icon="home">Menu</a>
+        </footer>
+    </div>
+
+    <div data-role="page" id="question6">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <br>
+            <h1>Question</h1>
+        </header>
+        <section>
+            <div data-role="content">
+                <h1>Question:</h1>
+                <h2 id="Q6"></h2>
+            </div>
+        </section>
+        <footer data-role="footer" data-position="fixed" data-thme="a">
+            <a href="#" data-rel="back" data-icon="home">Menu</a>
+        </footer>
+    </div>
+
+    <div data-role="page" id="question7">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <br>
+            <h1>Question</h1>
+        </header>
+        <section>
+            <div data-role="content">
+                <h1>Question:</h1>
+                <h2 id="Q7"></h2>
+            </div>
+        </section>
+        <footer data-role="footer" data-position="fixed" data-thme="a">
+            <a href="#" data-rel="back" data-icon="home">Menu</a>
+        </footer>
+    </div>
+    
+    <div data-role="page" id="waitPage">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <br>
+            <h1 class="title"></h1>
+        </header>
+        <section>
+            <br>
+            <center>
+            <h1>現在スタンプラリー開始待ち</h1>
+            <br>
+            <h1 id="startA">スタンプラリー開始時間</h1>
+            <h1 id="startTime"></h1>
+            <br>
+            <hr>
+            <h1 id="startB">現在時刻</h1>
+            <h1 id="nowTime"></h1>
+            </center>
+        </section>
+        <footer data-role="footer" data-position="fixed" data-thme="a">
+        </footer>
+    </div>
+</body>
+</html>
